@@ -1,17 +1,17 @@
+<!-- 
 
-<!-- Toolbar -->
 <div style="height: 80vh;">
   <mat-toolbar color="primary">
     <mat-toolbar-row>
       <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
         <mat-icon>menu</mat-icon>
       </button>
-      <span>Catilot Shop</span>
+      <span>CALICOT SHOP</span>
       <span class="menu-spacer"></span>
       <div fxShow="true" fxHide.lt-md>
-        <!-- The following menu items will be hidden on both SM and XS screen sizes -->
-        <a href="#" mat-button><mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon></a>
-        <a href="#" mat-button><mat-icon aria-hidden="false" aria-label="Example home icon">login</mat-icon></a>
+        
+        <a href="#" mat-button><mat-icon>home</mat-icon></a>
+        <a href="#" mat-button><mat-icon>login</mat-icon></a>
       </div>
     </mat-toolbar-row>
   </mat-toolbar>
@@ -20,39 +20,34 @@
     <mat-sidenav #sidenav>
       <mat-nav-list>
         <a (click)="sidenav.toggle()" href="" mat-list-item>Close</a>
-        <a href="#" mat-list-item><mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon></a>
-        <a href="#" mat-list-item><mat-icon aria-hidden="false" aria-label="Example home icon">login</mat-icon></a>
+        <a href="#" mat-list-item><mat-icon>home</mat-icon></a>
+        <a href="#" mat-list-item><mat-icon>login</mat-icon></a>
       </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content fxFlexFill>
-      <div class="content" role="main">
+      <div class="container-fluid" role="main">
 
-      
-        <!-- Resources -->
+        <router-outlet></router-outlet>
 
-        <div class="card-container">
-
-          <a class="card" target="_blank" rel="noopener" href="https://angular.io/cli">
-            <mat-icon aria-hidden="false" aria-label="Example home icon">list</mat-icon>
-            <span>Consulter les Produits</span>
-          </a>
-          <a class="card" target="_blank" rel="noopener" href="https://angular.io/cli">
-            <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
-      
-            <span>Ajouter un produit</span>
-          </a>
- 
-        </div>
-    
-      
-        <!-- Footer -->
-        <footer>
-
-        </footer>
+        <footer></footer>
       
       </div>
     </mat-sidenav-content>
   </mat-sidenav-container>
 </div>
 
+ -->
 
+ <app-layout>
+  <mat-sidenav-container>
+    <mat-sidenav #sidenav role="navigation">
+      <app-sidenav-list (sidenavClose)="sidenav.close()"></app-sidenav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <app-header (sidenavToggle)="sidenav.toggle()"></app-header>
+      <main>
+        <router-outlet></router-outlet>
+      </main>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</app-layout>

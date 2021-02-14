@@ -1,0 +1,50 @@
+<div class="container-fluid card-container">
+<h3 class="m-5">Détail du produit</h3>
+      <form #productForm="ngForm" class="form-horizontal">
+        <div class="form-group">
+          <label for="productname" class="col-sm-2 control-label">Nom</label>
+          <div class="col-md-10">
+            <input type="text" class="form-control" id="productname"  [(ngModel)]="product.name" name="productName">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="productdescription" class="col-sm-2 control-label">Description</label>
+          <div class="col-md-10">
+            <textarea rows="2" class="form-control" id="productdescription"  [(ngModel)]="product.description" name="description"></textarea>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="productprice" class="col-sm-2 control-label">Prix</label>
+          <div class="col-md-10">
+            <input type="number" class="form-control" id="productprice" [(ngModel)]="product.price" name="productprice">
+          </div>
+        </div>
+
+        <div *ngIf="product.id === 0" class="form-group spacer">
+          <label for="productpic" class="col-sm-2 control-label">Image</label>
+          <div class="col-md-10">
+            <input type="file" class="form-control" id="productpic"  accept="image/*" [(ngModel)]="product.picture" name="pic">
+          </div>
+        </div>
+        <div *ngIf="product.id !== 0">
+          <mat-card class="image-card">
+            <mat-card-header>
+              <div mat-card-avatar class="image-header-image"></div>
+              <mat-card-title></mat-card-title>
+              <mat-card-subtitle>Image du produit</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image src="product.picture">
+            <mat-card-content>
+            </mat-card-content>
+            
+          </mat-card>
+        </div>
+        
+
+        <div class="button-row">
+          <button mat-raised-button (click)="quitter()">Quitter</button>
+          <button mat-raised-button color="primary" (click)="saveProduct()">Enregister</button>
+          <button mat-raised-button color="warn" (click)="deleteProduct()">Supprimer</button>
+        </div>
+      </form>
+</div>
