@@ -1,0 +1,8 @@
+{
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/fefd6011-af8c-4269-8372-c5a7183d91d3/resourceGroups/ykemajou-azchallenge-rg/providers/Microsoft.Web/sites/calicotshop",
+    "appService.deploySubpath": "CalicotWebUI\\dist\\CalicotWebUI"
+}
